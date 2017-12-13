@@ -1,5 +1,4 @@
 #include <Servo.h>
-//Try using different pins because it may not need PWM
 Servo esc3, esc5, esc6, esc9;
 int motorSpeed =0;
 int flag = 0;
@@ -58,39 +57,11 @@ int up(){
   return upAmount; 
 }
 
-/*void down(){
-  for(int i=100; i>=0; i--){
-    setLevel(i);
-    delay(100);
-  }
-  motorSpeed=0;
-}*/
-
 void setLevel(int level){
     esc3.write(level);
     esc5.write(level);
     esc6.write(level);
     esc9.write(level);
-    /*
-    if(level >currentSpeed){
-      for(int i = currentSpeed; i< level; i++){
-        esc3.write(i);
-        esc5.write(i);
-        esc6.write(i);
-        esc9.write(i);
-        delay(5);
-      }
-    }
-    else if (level < currentSpeed){
-      for(int i = currentSpeed; i> level; i--){
-        esc3.write(i);
-        esc5.write(i);
-        esc6.write(i);
-        esc9.write(i);
-        delay(5);
-      }
-    }
-    currentSpeed = level;*/
 }
 
 void instructions(){
@@ -99,4 +70,3 @@ void instructions(){
   Serial.println("Type S for stop\n");
   Serial.println("Type D for a gradual down");
 }
-
